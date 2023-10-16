@@ -7,11 +7,18 @@ int main()
 	double sum{ 0 };
 	int idlLast{ -1 };
 	bool isBetween{ false };
+	bool isRandom{ false };
+	std::cout << "Random?\n";
+	std::cin >> isRandom;
 
 	//Зпрашиваем значения массива, находим индекс последнего нулевого элемента
-	std::cout << "Enter y:\n";
+	std::cout << "Enter y\n";
 	for (int i = 0; i < 10; i++)
 	{
+		if (isRandom)
+		{
+
+		}
 		int num{};
 		std::cin >> num;
 		y[i] = num;
