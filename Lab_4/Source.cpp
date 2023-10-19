@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+#include <stdlib.h>
+#include <time.h>
 
 int main()
 {
@@ -8,21 +10,28 @@ int main()
 	int idlLast{ -1 };
 	bool isBetween{ false };
 	bool isRandom{ false };
-	std::cout << "Random?\n";
+	std::cout << "Random? (0/1)\n";
 	std::cin >> isRandom;
 
-	//Зпрашиваем значения массива, находим индекс последнего нулевого элемента
-	std::cout << "Enter y\n";
+	//Зпрашиваем значения массива, либо генерируем, используя функцию rand(). 
+	//Находим индекс последнего нулевого элемента
+	if (!isRandom) {
+		std::cout << "Enter y\n";
+	}
+	srand(time(NULL)); 
 	for (int i = 0; i < 10; i++)
 	{
+		int num{};
 		if (isRandom)
 		{
-
+			num = rand() % 10;
+			std::cout << num << "\n";
 		}
-		int num{};
-		std::cin >> num;
+		else
+		{
+			std::cin >> num;
+		}
 		y[i] = num;
-
 		if (num == 0)
 		{
 			idlLast = i;
@@ -43,7 +52,7 @@ int main()
 	}
 
 	//Выводим сумму
-	std::cout << "Sum: " << sum;
+	std::cout << "Sum: " << sum<<"\n";
 
 	return 0;
 }
